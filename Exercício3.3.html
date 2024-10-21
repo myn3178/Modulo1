@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            height: 500px;
+            width: 500px;
+            background-color: rgb(212, 203, 203);
+            margin: 10px;
+            border-radius: 30px;
+        }
+        p {
+            margin: 15px;
+            line-height: 25px;
+            text-align: justify;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <button id="colorButton">Escuro</button>
+    <button id="colorButtonC">Claro</button>
+    <div id="box">
+        <p>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Totam consectetur dolorem quo at esse. Et alias fuga debitis sed magni nam, veritatis vero, perspiciatis quaerat sequi nobis error dignissimos perferendis.
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Totam consectetur dolorem quo at esse. Et alias fuga debitis sed magni nam, veritatis vero, perspiciatis quaerat sequi nobis error dignissimos perferendis.
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Totam consectetur dolorem quo at esse. Et alias fuga debitis sed magni nam, veritatis vero, perspiciatis quaerat sequi nobis error dignissimos perferendis.
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Totam consectetur dolorem quo at esse. Et alias fuga debitis sed magni nam, veritatis vero, perspiciatis quaerat sequi nobis error dignissimos perferendis.
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Totam consectetur dolorem quo at esse. Et alias fuga debitis sed magni nam, veritatis vero, perspiciatis quaerat sequi nobis error dignissimos perferendis.
+        </p>
+    </div>
+
+    <script>
+        document.getElementById('colorButton').onclick = function () {
+           document.getElementById('box').style.backgroundColor = 'black';
+           document.getElementById('box').style.color = 'white';
+        }
+            document.getElementById('colorButtonC').onclick = function () {
+            document.getElementById('box').style.backgroundColor = 'gray';
+            document.getElementById('box').style.color = 'black';
+        }
+    </script>
+</body>
+</html>
