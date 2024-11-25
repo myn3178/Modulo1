@@ -39,15 +39,18 @@
           height: 100px;
         }
     
-        header #logo {
-          flex: 0 1 200px;
-          background: inherit;
-          font-family: Georgia, 'Times New Roman', Times, serif;
-          font-size: 30px;
-          text-align: center;
-          background: #ab8150;
-          margin-bottom: 1px;
-        }
+         header #logo {
+        display: flex;             
+        justify-content: center;    
+        align-items: center;       
+        flex: 0 1 200px;
+        
+        background: #ab8150;
+        font-family: Serif;
+        font-size: 30px;
+        text-align: center;
+        margin-bottom: 1px;
+      }
     
     
         nav {
@@ -120,9 +123,9 @@
             flex-direction: column;
             width: 100vw;
             height: 100vh;
-            background: rgba(255, 255, 255, 0.8);
+            background: rgba(131, 128, 118, 0.8);
             align-items: center;
-            justify-content: center;
+            justify-content: space-around;
             margin: 0;
             display: none;
           }
@@ -264,9 +267,10 @@
           padding: 7px;
         }
         .container2 {
-          margin-top: 180px;
-    
+          margin-top: 200px;
+          margin-bottom: 200px;
           text-align: center;
+          height: 600px;
         }
     
         .p2 {
@@ -283,24 +287,47 @@
           display: flex;
           position: absolute;
           margin: auto;
-          margin-top: 20px;
+          margin-top: 5px;
+          margin-bottom: 5px;
+        }
+        .t1 h2{
+          font-size: 40px;
+          margin-top: 0px;
+         
+
         }
     
-    
-        .text1 {
+        .text1, .text1m {
     
           align-items: center;
           background-color: #a1a1a113;
-          display: flex;
-          text-align: justify;
+          text-align: center;
           justify-content: center;
-          align-items: center;
           margin: 10px;
           border: solid rgba(206, 206, 206, 0.084) 2px;
-          margin-top: 80px;
+          margin-top: 35px;
           padding: 5px;
+          border-radius: 5px;
+          max-height: 200px;
+          margin-left: 10px;
+          margin-right: 10px;
+          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+          border: 2px solid  #ab8150;
         }
-      
+        .text1m{
+          margin-top: 80px;
+        }
+        .text1:hover{
+          box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);  
+          transform: translateY(-5px);
+          transition:  0.4s ease;
+        }
+        
+        .text1m:hover{
+          box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);  
+          transform: translateY(-5px);
+          transition:  0.4s ease;
+        }
         .bloco1, .bloco2{
              width: 50%; margin: 0;
         }
@@ -329,25 +356,32 @@
         .xx:hover{
           color: #9a754a;
         }
+
+        nav{
+          margin-left: -100px;
+        }
+
+        
+       
       </style>
     
     </head>
     
     <body>
       <header>
-        <a href="#" id="logo">Chess Paths</a>
+        <a href="#" id="logo"><img src="/Yasmin Brito/LOGO.jpg" height="100%" ></a>
     
         <nav>
-          <a class="yz"  href="/Projeto Final/projetofinal.html">Início</a>
-          <a class="yz"  href="/Projeto Final/Partidas.html">Partidas</a>
-          <a class="yz"  href="/Projeto Final/Mestresdoxadrez.html">Mestres do Xadrez</a>
+          <a class="yz"  href="/Projeto Final/projetofinal.html"><strong>Início</strong></a>
+          <a class="yz"  href="/Projeto Final/Partidas.html"><strong>Partidas</strong></a>
+          <a class="yz"  href="/Projeto Final/Mestresdoxadrez.html"><strong>Mestres do Xadrez</strong></a>
     
           <ul class="estratégias-lista">
             <li class="dropdown">
-              <a class="zz" href="#">Estratégias</a>
+              <a class="zz" href="#"><strong>Estratégias</strong></a>
     
               <div class="dropdown-menu">
-                <a class="xx" href="/Projeto Final/Projeto Final Estratégias/aberturasinício.html">Aberturas</a>
+                <a class="xx" href="/Projeto final/Projeto Final Estratégias/aberturas.html">Aberturas</a>
                 <a class="xx"  href="/Projeto Final/Projeto Final Estratégias/Matecomtorre.html">Mate com torre</a>
                 <a class="xx"  href="/Projeto Final/Projeto Final Estratégias/Matecomdama.html">Mate com Dama</a>
                 <a class="xx"  href="/Projeto Final/Projeto Final Estratégias/Matecomcavalo.html">Mate com Cavalo</a>
@@ -364,14 +398,14 @@
       <div id="carouselExample" style="height: 300px;" class="carousel slide">
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <img src="../Projeto final/img/Campeonato Mundial de Xadrez Juvenil da FIDE 2024 (1).jpg" class="d-block w-100"
+            <img src="/Projeto final/img/Campeonato Mundial de Xadrez Juvenil da FIDE 2024 (1).jpg" class="d-block w-100"
               alt="...">
           </div>
           <div class="carousel-item">
-            <img src="img/Campeonato Mundial de Xadrez Juvenil da FIDE 2024 (3).jpg" class="d-block w-100" alt="...">
+            <img src="/Projeto final/img/Campeonato Mundial de Xadrez Juvenil da FIDE 2024 (3).jpg" class="d-block w-100" alt="...">
           </div>
           <div class="carousel-item">
-            <img src="img/Design sem nome.jpg" class="d-block w-100" alt="...">
+            <img src="/Projeto final/img/Design sem nome.jpg" class="d-block w-100" alt="...">
           </div>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
@@ -395,7 +429,7 @@
         <div class="bloco1">
          
     
-                <div class="text1">
+                <div class="text1m">
                   <p>A prática do xadrez desenvolve habilidades tendo como destaque: memória, concentração, planejamento e tomadas
                     de decisões.
                     O xadrez é considerado como um excelente suporte pedagógico visto que se relaciona com diversas disciplinas,
@@ -432,7 +466,7 @@
       </div>
     
       <div class="bloco2">
-          <div class="text1">
+          <div class="text1m">
             <p>Paciência e perseverança: O jogo exige decisões ponderadas. Muitas vezes, é necessário esperar o momento
               certo
               para executar determinada jogada ou para atingir uma posição vantajosa.
@@ -479,9 +513,15 @@
           <div class="footer-content1">
             <h3>Nos siga nas redes sociais</h3>
             <ul class="social-icons">
+              <a href="facebook.html">
               <img class="yy" src="https://cdn-icons-png.flaticon.com/512/1077/1077041.png" alt="facebook" width="30px">
+              </a>
+              <a href="https://www.instagram.com/chess.paths/">
               <img class="yy" src="https://cdn-icons-png.flaticon.com/512/1936/1936319.png" alt="instagram" width="32px">
+              </a>
+              <a href="twitter.html">
               <img class="yy" src="https://img.icons8.com/ios7/600/000000/twitter.png" alt="twitter" width="30px"> 
+              </a>
             </ul>
           </div>
         </div>

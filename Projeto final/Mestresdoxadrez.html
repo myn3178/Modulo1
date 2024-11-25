@@ -1,1 +1,664 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<html lang="pt-br">
+    
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Chess Paths</title>
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+      <style type="text/css">
+        * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+        }
+    
+        body {
+          margin: 0;
+          flex: 1 1 100vw;
+        }
+    
+        header,
+        nav,
+        main
+         {
+         
+          display: flex;
+          margin-bottom: 1px;
+        }
+    
+        header {
+          flex: 1 1 100vw;
+          height: 100px;
+        }
+    
+        header #logo {
+        display: flex;             
+        justify-content: center;    
+        align-items: center;       
+        flex: 0 1 200px;
+        background: #ab8150;
+        font-family: Serif;
+        font-size: 30px;
+        text-align: center;
+        margin-bottom: 1px;
+      }
 
+    
+    
+        nav {
+          flex: 1 1 200px;
+          background:#ab8150;
+          align-items: center;
+          justify-content: center;
+        }
+    
+        nav a {
+          margin: 3%;
+          font-size: 20pt;
+        }
+    
+        .p1 {
+    
+          height: 600px;
+          margin: 0;
+          margin-bottom: 5px;
+          width: 100vw;
+        }
+    
+        .p2 p {
+          flex: 20 1 500px;
+          height: calc(100vh - 224px);
+          margin: 0;
+          margin-bottom: 5px;
+    
+    
+        }
+    
+        footer {
+          flex: 1 1 100vw;
+          height: 10vw;
+          margin: 0;
+        }
+    
+        a {
+          text-decoration: none;
+          color: inherit;
+        }
+    
+       
+    
+      
+
+        a {
+        position: relative;
+        text-decoration: none;
+        font-family: 'Poppins' ,sans-serif;
+        font-size: 18px;
+        letter-spacing: 0.5px;
+        padding: 0 10px;
+      }
+
+      .yz:after {
+        content: "";
+        position: absolute;
+        background-color: #6a5032;
+        height: 3px;
+        width: 0;
+        left: 0;
+        bottom: -10px;
+        transition: 0.3s;
+      }
+
+      a:hover {
+        color: #000000;
+      }
+
+      a:hover:after{
+        width: 100%;
+      }
+    
+        .dropdown-menu {
+          position: absolute;
+          box-shadow: 0 0 2px black;
+          display: none;
+        }
+    
+        .dropdown-menu a {
+          display: block;
+        }
+    
+        .dropdown:hover .dropdown-menu {
+          display: block;
+        }
+    
+        .estratégias-lista {
+          list-style-type: none;
+          padding-left: 0;
+        }
+    
+    
+        footer {
+          padding-top: 50px;
+          background: #ab8150;
+          height: 100%;
+        }
+    
+        
+    
+        .footer {
+          width: 33.3%;
+         
+        }
+    
+        h3 {
+          font-size: 28px;
+          margin-bottom: 15px;
+          text-align: center;
+        }
+    
+        
+    
+        .footer-content ul {
+          text-align: center;
+        }
+    
+        .list {
+          padding: 0;
+        }
+    
+        .list li {
+          width: auto;
+          text-align: center;
+          list-style-type: none;
+          padding: 7px;
+          position: relative;
+        }
+    
+        .list li::before {
+          content: '';
+          position: absolute;
+          transform: translate(-50%, -50%);
+          left: 50%;
+          top: 100%;
+          width: 0;
+          height: 2px;
+          background:#483622;
+          transition-duration: .5s;
+        }
+    
+        .list li:hover::before {
+          width: 70px;
+        }
+        .social-icons{
+          text-align: center;
+          padding: 0;
+        }
+        .social-icons li{
+          display: inline-block;
+          text-align: center;
+          padding: 5px;
+        }
+        .social-icons i{
+          color: white;
+          font-size: 25px;
+        }
+        a{
+          text-decoration: none;
+        }
+      
+        
+        .social-icons i:hover{
+          color: #a1a1a1;
+        }
+        .bottom-bar{
+          text-align: center;
+          padding: 10px 0;
+          margin-top: 50px;
+        }
+        .bottom-bar p{
+          color: #343434;
+          margin: 0;
+          font-size: 16px;
+          padding: 7px;
+        }
+       
+        .yy:hover {
+         
+          scale: 1.4 ;
+         background: #483622;
+         border-radius: 12px;
+        
+        }
+       
+        .estratégias-lista{
+          margin-top: 20px;
+        }
+        
+        .xx{
+          color: #000000;
+          transition: color 0.2s ease;
+        }
+        .xx:hover{
+          color: #9a754a;
+        }
+        .ll{
+            height: 500px;
+        }
+        .card{
+            background-color: rgb(255, 255, 255);
+            width: 250px;
+            height: 390px;
+            border-radius: 12px;
+            margin: 100px;
+            box-shadow: 4px 4px 12px #aaaa;
+            margin-bottom: 10px;    
+        }
+        .cards-container {
+        max-height: calc(100vh - 100px); 
+        overflow-y: auto;
+        padding-bottom: 20px; 
+        }
+        .card h1{
+            font-size: 1.2rem;
+            text-align: center;
+        }
+        .card h2{
+           font-size: .9rem;
+           color: #a1a1a1;
+           text-align: center;
+        }
+        .card button {
+            background-color: blue;
+            height: 30px;
+            border: none;
+            padding: 4px;
+            width: 80%;
+            color: aliceblue;
+            font-size: 1rem;
+            font-weight: bold;
+            border-radius: 11px;
+            margin-top: 10px;
+            margin-left: 20px;  
+        }
+        .img-mestre{
+            border-radius: 4px;
+        }
+        
+        .container3{
+            text-align: center;
+        }
+      
+        .titlegm{
+            text-align: center;
+            margin-top: 50px;
+            font-family: Serif;
+            font-size: 90px;
+        }
+        hr{
+            
+         border: none; 
+         border-top: 6px double #854905; 
+         width: 100%; 
+         margin: 10px auto; 
+            
+        }
+        .botao:active{
+          background-color: rgb(3, 3, 148);
+        }
+        .extra-text {
+         display: none;
+         text-align: center;
+         margin-left: 15px;
+         margin-right: 15px;
+        }
+
+
+        .expandido {
+         width: 250px;
+         height: 750px;
+         scale: 1.2;
+         overflow-y: auto;   
+        }
+  
+
+        .card.expandido .extra-text {
+         display: block;
+         margin-top: 10px;
+        }
+        .card.expandido .extra-text2 {
+         display: block;
+         margin-top: 10px;
+        }
+        .card.expandido2 {
+         width: 250px;
+         height: 750px;
+        }
+        
+        
+        .containergm, .containergm2, .containergm3, .containergm4 {
+        display: flex;
+        justify-content: center; 
+        align-items: center;     
+        gap: 20px;              
+        flex-wrap: wrap;       
+        margin: 0 auto;         
+        width: 100%;            
+        }
+
+        nav{
+          margin-left: -160px;
+        }
+
+      </style>
+    
+    </head>
+    
+    <body>
+      <header>
+        <a href="#" id="logo"><strong>Chess Paths</strong></a>
+    
+        <nav>
+          <a class="yz"  href="/Projeto Final/projetofinal.html"><strong>Início</strong></a>
+          <a class="yz"  href="/Projeto Final/Partidas.html"><strong>Partidas</strong></a>
+          <a class="yz"  href="/Projeto Final/Mestresdoxadrez.html"><strong>Mestres do Xadrez</strong></a>
+    
+          <ul class="estratégias-lista">
+            <li class="dropdown">
+              <a class="zz" href="#"><strong>Estratégias</strong></a>
+    
+              <div class="dropdown-menu">
+                <a class="xx" href="/Projeto final/Projeto Final Estratégias/aberturas.html">Aberturas</a>
+                <a class="xx"  href="/Projeto Final/Projeto Final Estratégias/Matecomtorre.html">Mate com torre</a>
+                <a class="xx"  href="/Projeto Final/Projeto Final Estratégias/Matecomdama.html">Mate com Dama</a>
+                <a class="xx"  href="/Projeto Final/Projeto Final Estratégias/Matecomcavalo.html">Mate com Cavalo</a>
+                <a class="xx"  href="/Projeto Final/Projeto Final Estratégias/Armadilhas.html">Armadilhas</a>
+    
+              </div>
+            </li>
+          </ul>
+        </nav>
+    
+    
+      </header>
+      <div class="cards-container">
+      <h1 class="titlegm">Mestres do Xadrez</h1>
+      <hr>
+    <div class="containergm">
+        <div class="card">
+            <img class="img-mestre" src="https://mundopoker.com.br/wp-content/uploads/2023/04/Magnus-Carlsen-scaled.jpg"   width="100%" >
+            <div>
+             <p></p>   
+             <h1>Magnus Carlsen</h1>   
+             <h2>idade : 33 anos</h2>
+             <h2>Nascido em: Tønsberg Noruega</h2>
+             <h1>Rating - 2831</h1>
+             <p class="extra-text">Sven Magnus Øen Carlsen é um grande mestre de xadrez norueguês e campeão mundial de xadrez clássico de 2013 a 2023. 
+              Foi campeão mundial de xadrez rápido em 2014, 2015, 2019, 2022 e 2023 e campeão mundial de xadrez blitz nos anos de 2009, 2014, 2017, 2018, 2019, 2022 e 2023.
+              Altura: 1,78 m
+              Irmãs: Ingrid Carlsen, Signe Carlsen, Ellen Øen Carlsen
+              Maior rating: 2882 (maio de 2014) 
+            </p>
+            <button class="botao" onclick="expandirCard(this); trocarTexto(this)">Saiba mais</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <img class="img-mestre" src="https://www.torneiosdexadrez.com.br/wp-content/uploads/2024/06/Garry-Kasparov-tabuleiro-xadrez.png"  width="100%">
+            <div>
+             <p></p>   
+             <h1>Garry Kasparov</h1>   
+             <h2>idade : 61 anos</h2>
+             <h2>Nascido em: Baku, Azerbaijão - União Soviética</h2>
+             <h1>Rating -   2792</h1>
+             <p class="extra-text">Garry Kímovich Kasparov é um Grande Mestre e ex-campeão mundial de xadrez, escritor e ativista político. 
+              É considerado por muitos o maior enxadrista de todos os tempos. 
+              Filhos: Vadim Kasparov, Aida Kasparova, Polina Kasparova
+              Cônjuge: Daria Tarasova (desde 2005), Yulia Vovk (de 1996 a 2005)
+              Prêmios: Chess Oscar
+              Altura: 1,74 m        
+              Organizações fundadas: Professional Chess Association, MAIS
+      
+            </p>
+            <button class="botao" onclick="expandirCard(this); trocarTexto(this)">Saiba mais</button>
+            </div>
+        </div>
+ 
+        <div class="card">
+            <img class="img-mestre" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_YOPjJG9kxrLJm3eSlzqcj3LrKz77kc_vrQ&s"  width="100%">
+            <div>
+             <p></p>   
+             <h1>Anatoly Karpov</h1>   
+             <h2>idade : 73 anos</h2>
+             <h2>Nascido em: Zlatoust, Rússia</h2>
+             <h1>Rating - 2984</h1>
+             <p class="extra-text">Anatoly Evguenievich Karpov é um grande mestre de xadrez russo. 
+              Foi campeão mundial de xadrez de 1975 a 1985 e de 1993 a 1999, totalizando 16 anos com o título mundial
+               e tornando-se o campeão mundial que mais partidas realizou em disputa direta pelo título ou em sua defesa.
+               Filhos: Sophia Karpova, Anatoly Karpov
+               Cônjuge: Natalia Bulanova
+               Partido: Rússia Unida
+               Prêmios: Chess Oscar
+               Altura: 1,7 m
+               </p>
+               <button class="botao" onclick="expandirCard(this); trocarTexto(this)">Saiba mais</button>
+            </div>
+        </div>
+    </div>
+    
+    <div class="containergm2">
+        <div class="card">
+            <img class="img-mestre" src="https://images.chesscomfiles.com/uploads/v1/article/18986.0978b9fe.668x375o.794ae7b5e885@2x.jpeg">
+            <div>
+             <p></p>   
+             <h1>Hikaru Nakamura</h1>   
+             <h2>idade : 36  anos</h2>
+             <h2>Nascido em: Hirakata, Osaka, Japão</h2>
+             <h1>Rating - 2802</h1>
+             <p class="extra-text">Hikaru Nakamura - em japonês, 中村光 Nakamura Hikaru é um jogador de xadrez e streamer norte-americano, campeão nacional em 2005, 2009, 2012, 2015 e 2019,
+               foi participante do Campeonato Mundial de Xadrez de 2004, o qual foi eliminado no quarto round por Michael Adams.
+               Cônjuge: Atousa Pourkashiyan (desde 2023)
+               Livros: Bullet Chess: One Minute to Mate, Scacco matto in 1 minuto. I segreti del numero 1 al mondo Bullet e Blitz
+               </p>
+               <button class="botao" onclick="expandirCard(this); trocarTexto(this)">Saiba mais</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <img class="img-mestre" src="https://d3lzcn6mbbadaf.cloudfront.net/media/details/ANI-20241106031135.jpg">
+            <div>
+             <p></p>   
+             <h1>Arjun Erigaisi </h1>   
+             <h2>idade : 21 anos</h2>
+             <h2>Nascido em:  Warangal, Índia</h2>
+             <h1>Rating - 2799</h1>
+             <p class="extra-text">Traduzido do inglês-Arjun Erigaisi é um grande mestre do xadrez indiano e o jogador com melhor classificação da Índia em setembro de 2024, 
+              ultrapassando o ex-campeão mundial Viswanathan Anand.
+              Ele ganhou o título de grande mestre aos 14 anos, 11 meses e 13 dias, tornando-se a 32ª pessoa mais jovem a alcançar o título de grande mestre.
+            </p>
+            <button class="botao" onclick="expandirCard(this); trocarTexto(this)">Saiba mais</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <img class="img-mestre" src="https://chessarena.com/news/pictures/Nodirbek-Abdusattorov-beats-Fabiano-Caruana.jpg">
+            <div>
+             <p></p>   
+             <h1>Nodirbek Abdusattorov</h1>   
+             <h2>idade : 20 anos</h2>
+             <h2>Nascido em: Toshkent, Uzbequistão</h2>
+             <h1>Rating - 2777</h1>
+             <p class="extra-text">Traduzido do inglês-Nodirbek Abdusattorov é um grande mestre de xadrez uzbeque. Prodígio do xadrez, ele se qualificou para o título de grande mestre aos 13 anos, 1 mês e 11 dias. A FIDE concedeu-lhe o título em abril de 2018. 
+              Ele é o grande mestre mais bem avaliado do Uzbequistão e atualmente um dos melhores jogadores de xadrez do mundo.</p>
+              <button class="botao" onclick="expandirCard(this); trocarTexto(this)">Saiba mais</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="containergm3">
+        <div class="card">
+            <img class="img-mestre" src="https://www.lequipe.fr/_medias/img-photo-jpg/alireza-firouzja-passe-a-cote-de-son-tournoi-micha-walusza-walusza-fotografia/1500000001943892/0:0,1994:1329-828-552-75/90591.jpg">
+            <div>
+             <p></p>   
+             <h1>Alireza Firouzja</h1>   
+             <h2>idade : 21   anos</h2>
+             <h2>Nascido em: Babol, Irã</h2>
+             <h1>Rating - 2763 </h1>
+             <p class="extra-text">Alireza Firouzja é um Grande Mestre de xadrez iraniano-francês. Ocupou a segunda posição no ranking FIDE por 6 meses, e é o jogador mais jovem da história a alcançar o rating de 2800,
+               batendo o recorde anterior de Magnus Carlsen por mais de cinco meses.
+               Um enxadrista prodígio, Firouzja venceu o Campeonato Iraniano de Xadrez aos 12 anos, e ganhou o título de Grande Mestre aos 14. </p>
+               <button class="botao" onclick="expandirCard(this); trocarTexto(this)">Saiba mais</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <img class="img-mestre" src="https://www.henrychesssets.com/wp-content/uploads/Ian-Nepomniachtchi-portrait.jpg">
+            <div>
+             <p></p>   
+             <h1>Ian Nepomniachtchi  </h1>   
+             <h2>idade :  34 anos</h2>
+             <h2>Nascido em:  Briansk, Rússia</h2>
+             <h1>Rating - 2755</h1>
+             <p class="extra-text">Ian Alexandrovich Nepomniachtchi é um Grande Mestre de xadrez da Rússia. Nepomniachtchi venceu o Campeonato Russo de Xadrez em 2010 e 2020,
+               e o Campeonato Europeu de Xadrez Individual em 2010. Ele também conquistou o Aberto de Aeroflot em 2008 e 2015, e o Memorial Tal em 2016.
+               Formação: Russian State Social University
+               Títulos: Grande Mestre de Xadrez
+              </p>
+              <button class="botao" onclick="expandirCard(this); trocarTexto(this)">Saiba mais</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <img class="img-mestre" src="https://pbs.twimg.com/media/GNQ-YmiXcAAHDYc.jpg:large">
+            <div>
+             <p></p>   
+             <h1>Wei Yi</h1>   
+             <h2>idade :  25 anos</h2>
+             <h2>Nascido em: Yancheng, China</h2>
+             <h1>Rating - 2753</h1>
+             <p class="extra-text">Wei Yi é um menino prodígio e grande mestre de xadrez. Wei tornou-se um grande mestre com 13 anos, 8 meses e 23 dias, o quarto mais jovem da história. 
+              Na época foi o jogador mais jovem a atingir um rating de 2700. Wei representa o clube de Jiangsu na China Chess League.
+              Desde 2017, ele está classificado entre os 30 melhores jogadores do mundo. 
+              chegou ao top ten pela primeira vez após vencer o Tata Steel Tournament .
+               </p>
+               <button class="botao" onclick="expandirCard(this); trocarTexto(this)">Saiba mais</button>
+            </div>
+        </div>
+
+    </div>
+    <div class="containergm4">
+      <div class="card">
+          <img class="img-mestre" src="https://www.maestrodeajedrez.com/wp-content/uploads/2021/06/Fabiano-Caruana-.jpeg">
+          <div>
+           <p></p>   
+           <h1>Fabiano Caruana</h1>   
+           <h2>idade : 32 anos</h2>
+           <h2>Nascido em: Miami, Flórida, EUA</h2>
+           <h1>Rating -  2805 </h1>
+           <p class="extra-text">Fabiano Luigi Caruana é um Grande Mestre de Xadrez ítalo-americano. 
+            Após tornar-se GM aos 14 anos, 11 meses e 20 dias, foi campeão italiano em 2007, 2008 e 2011.
+            Pais: Santina Caruana, Lou Caruana
+            Formação: Berkeley Carroll School
+            Altura: 1,68 m
+            Títulos: GM
+            Em 2013 situou-se entre as 10 pessoas mais inteligentes do mundo, segundo o site Top Ten Famous.
+          </p>
+          <button class="botao" onclick="expandirCard(this); trocarTexto(this)">Saiba mais</button>
+
+          </div>
+      </div>
+
+      <div class="card">
+          <img class="img-mestre" src="https://currentaffairs.adda247.com/wp-content/uploads/multisite/sites/5/2022/08/08083905/ViswanathanAnand.jpg">
+          <div>
+           <p></p>   
+           <h1>Vishy Anand </h1>   
+           <h2>idade 54  anos</h2>
+           <h2>Nascido em: Mayiladuthurai, Índia</h2>
+           <h1>Rating - 2750</h1>
+           <p class="extra-text">Viswanathan Anand, também conhecido como Vishy Anand, 
+            é um grande mestre de xadrez indiano e ex-campeão mundial de xadrez. Em 2022, ele foi eleito vice-presidente da FIDE.
+            Pais: Viswanathan Iyer, Susheela
+            Irmãos: Anuradha Anand, Shivakumar Anand
+            Cônjuge: Aruna Anand (desde 1996)
+            Maior rating: 2817 (março de 2011)
+
+             </p>
+             <button class="botao" onclick="expandirCard(this); trocarTexto(this)">Saiba mais</button>
+          </div>
+      </div>
+
+      <div class="card">
+          <img class="img-mestre" src="https://britainherald.com/wp-content/uploads/2024/04/Gukesh-D.jpeg">
+          <div>
+           <p></p>   
+           <h1>Gukesh D</h1>   
+           <h2>idade: 18  anos</h2>
+           <h2>Nascido em: Chennai, Índia</h2>
+           <h1>Rating -  2783</h1>
+           <p class="extra-text">Dommaraju Gukesh, mais conhecido como Gukesh D, é um grande mestre de xadrez indiano. Prodígio do xadrez, ele foi a terceira pessoa mais jovem da história a obter o título de Grande Mestre.
+             O mais jovem enxadrista a atingir a marca de 2750 de rating e o terceiro mais jovem a jogar o Torneio de Candidatos. </p>
+             <button class="botao" onclick="expandirCard(this); trocarTexto(this)">Saiba mais</button>
+          </div>
+      </div>
+
+  </div>
+   
+  <script>
+    function expandirCard(button) {
+        const card = button.closest(".card"); 
+        card.classList.toggle("expandido");    
+    }
+
+    function trocarTexto(button) {
+        if (button.innerText === "Saiba mais") {
+            button.innerText = "Fechar";
+        } else {
+            button.innerText = "Saiba mais";
+        }
+    }
+</script>
+
+    </script>
+      </div>
+      <footer>
+        <div class="container3">
+          <div class="footer-content">
+            <h3>Contato</h3>
+            <p>Email:chesspaths@gmail.com</p>
+            <P>Telefone:+55 11 96963-8977</P>
+          </div>
+          <div class="footer-content">
+            <h3>Quick Links</h3>
+            <ul class="list">
+              <li><a href="../Projeto final/projetofinal.html">Início</a></li>
+              <li><a href="../Projeto final/Partidas.html">Partidas</a></li>
+              <li><a href="/Projeto final/Mestresdoxadrez.html">Mestres do Xadrez</a></li>
+              <li><a href="/Projeto final/Projeto Final Estratégias/aberturas.html">Estratégias</a>
+              </li>
+            </ul>
+          </div>
+          <div class="footer-content1">
+            <h3>Nos siga nas redes sociais</h3>
+            <ul class="social-icons">
+              <img class="yy" src="https://cdn-icons-png.flaticon.com/512/1077/1077041.png" alt="facebook" width="30px">
+              <img class="yy" src="https://cdn-icons-png.flaticon.com/512/1936/1936319.png" alt="instagram" width="32px">
+              <img class="yy" src="https://img.icons8.com/ios7/600/000000/twitter.png" alt="twitter" width="30px"> 
+            </ul>
+          </div>
+        </div>
+        <div class="bottom-bar">
+          <p>&copy; 2024 Chess Paths by Yasmin Brito</p>
+        </div>
+      </footer>
+    
+    
+    
+    </body>
+    
+    </html>
